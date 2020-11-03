@@ -1,0 +1,8 @@
+<h1><%= @task.title %></h1>
+<p><%= @task.details %></p>
+<p><%= @task.completed %></p>
+<div class="buttons">
+<%= link_to '🏠', tasks_path %>
+<%= link_to '⚙️', edit_task_path(@task) %>
+
+</div>

@@ -1,9 +1,15 @@
 <div class="container">
 <h1>My Tasks</h1>
-  <div class="tasks-container">
+  <div class="tasks-container border-bottom my-1">
     <ul>
       <% @tasks.each do |task| %>
-        <li><%= task.completed %> <%= link_to task.title, task_path(task) %> <%= link_to '🗑', task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?" } %></li>
+        <li>
+          <% if task.completed  %>
+            <i class="far fa-check-circle"></i>
+          <% else %>
+            <i class="far fa-circle"></i>
+          <% end %>
+         <%= link_to task.title, task_path(task) %> <%= link_to '🗑', task_path(task), method: :delete, data: { confirm: "Delete #{task.title}?" } %></li>
       <% end %>
     </ul>
   </div>

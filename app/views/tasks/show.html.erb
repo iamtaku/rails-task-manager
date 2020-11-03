@@ -1,9 +1,16 @@
   <div class="container">
     <h1><%= @task.title %></h1>
     <p><%= @task.details %></p>
-    <p><%= @task.completed %></p>
+    <div class="task-completed d-flex align-items-center">
+
+     <% if @task.completed  %>
+            <i class="far fa-check-circle"></i><p class="px-2">This task has been completed</p>
+          <% else %>
+            <i class="far fa-circle"></i><p>This task has not been completed</p>
+          <% end %>
+    </div>
     <div class="buttons">
-    <%= link_to '🏠', tasks_path %>
+    <%= link_to '🏠', tasks_path, class: 'px-2'%>
     <%= link_to '⚙️', edit_task_path(@task) %>
     </div>
   </div>
